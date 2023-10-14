@@ -3,26 +3,26 @@
     <img class="h-[48px] w-[48px]" src="../assets/shared/logo.svg"/>
     
     <div class="flex flex-row justify-around w-[50vw] h-[90px] px-4 bg-[#979797]/20">
-      <div class="link link--active">
+      <routerLink to="/" class="link link--active">
         <span class="link__row">
           <span class="link--bold">00</span> Home
         </span>
-      </div>
-      <div class="link link--active">
+      </routerLink>
+      <routerLink to="/destination" class="link link--active">
         <span class="link__row">
           <span class="link--bold">01</span> Destination
         </span>
-      </div>
-      <div class="link link--active">
+      </routerLink>
+      <routerLink to="/crew" class="link link--active">
         <span class="link__row">
-          <span class="link--bold">02</span> Destination
+          <span class="link--bold">02</span> Crew
         </span>
-      </div>
-      <div class="link lg:mr-[150px] md:mr-[30px] link--active">
+      </routerLink>
+      <routerLink to="/technology" class="link lg:mr-[150px] md:mr-[30px] link--active">
         <span class="link__row">
           <span class="link--bold">03</span> Technology
         </span>
-      </div>
+      </routerLink>
     </div>
   </nav>
 </template>
