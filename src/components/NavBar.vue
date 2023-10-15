@@ -24,7 +24,7 @@ const showDropdown = ref(false)
     <nav class="flex flex-row items-center justify-between h-[90px] ">
       <img class="h-[48px] w-[48px] ml-4" src="../assets/shared/logo.svg" />
 
-      <div class="flex flex-row justify-around w-[50vw] h-[90px] px-4 bg-[#979797]/20">
+      <div class="flex flex-row justify-around w-[50vw] h-[90px] px-4 backdrop">
         <routerLink to="/" class="link" :class="{ 'link--active': pathMap.home === path }">
           <span class="link__row">
             <span class="link--bold">00</span> Home
@@ -52,25 +52,27 @@ const showDropdown = ref(false)
 
   <section class="block md:hidden">
     <nav class="flex flex-row justify-between items-center p-3">
-      <img class="h-[48px] w-[48px]" src="../assets/shared/logo.svg" />
+      <img class="h-[40px] w-[40px]" src="../assets/shared/logo.svg" />
 
       <img class="" src="../assets/shared/icon-hamburger.svg" :class="{ 'hidden': showDropdown }"
         @click="showDropdown = !showDropdown" />
     </nav>
   </section>
 
-  <div class="dropdown" :class="{ 'hidden': !showDropdown }">
-    <div class="flex flex-col items-end">
+  <div class="dropdown backdrop" :class="{ 'hidden': !showDropdown }">
+    <!-- <div class="blur-[2px] bg-[#979797]/20 h-[99%] w-[99%] z-[-1] fixed top-0" ></div> -->
+    <div class="flex flex-col items-end z-[90] h-full">
 
       <div class="flex flex-row justify-end">
         <img class="h-6 w-6 mr-5 mt-5 " src="../assets/shared/icon-close.svg" @click="showDropdown = !showDropdown" />
       </div>
 
-      <div class="flex flex-col mt-16 w-[90%] pr-5">
+      <div class="flex flex-col mt-16 w-[90%] ">
         <routerLink to="/" class="dropdown__link" :class="{ 'dropdown__link--active': pathMap.home === path }">
           <span class="link--bold">00</span> Home
         </routerLink>
-        <routerLink to="/destination" class="dropdown__link" :class="{ 'dropdown__link--active': pathMap.destination === path }">
+        <routerLink to="/destination" class="dropdown__link"
+          :class="{ 'dropdown__link--active': pathMap.destination === path }">
           <span class="link--bold">01</span> Destination
         </routerLink>
         <routerLink to="/crew" class="dropdown__link" :class="{ 'dropdown__link--active': pathMap.crew === path }">
@@ -87,9 +89,7 @@ const showDropdown = ref(false)
 
 <style scoped>
 .link {
-  @apply text-white text-base font-barlow h-full flex flex-col justify-center 
-  hover:border-b-2 hover:border-b-white
-  transition-colors duration-500
+  @apply text-white text-base font-barlow h-full flex flex-col justify-center hover:border-b-2 hover:border-b-white transition-colors duration-500 ease-in-out
 }
 
 .link--active {
@@ -104,15 +104,26 @@ const showDropdown = ref(false)
   @apply font-bold mr-1
 }
 
-.dropdown {
-  @apply bg-[#979797]/20 h-[100vh] w-[60vw] absolute right-0 top-0
+.backdrop {
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40.7742px);
 }
 
+.dropdown {
+
+
+  /* Note: backdrop-filter has minimal browser support */
+
+  @apply h-[100vh] w-[60vw] absolute right-0 top-0
+}
+
+
 .dropdown__link {
-  @apply text-xl my-3 hover:border-r-2 hover:border-r-white transition-colors duration-500
+  @apply text-lg my-3 font-barlow z-10 text-white
 }
 
 .dropdown__link--active {
-  @apply border-r-2 border-r-white
+  @apply border-r-4 border-r-white transition-colors duration-500 ease-in-out z-20
 }
 </style>
