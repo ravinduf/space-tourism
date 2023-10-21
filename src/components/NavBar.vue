@@ -22,10 +22,10 @@ const showDropdown = ref(false)
 <template>
   <section class="lg:mt-10 hidden md:block md:mt-0 ">
     <nav class="flex flex-row items-center justify-between h-[90px] ">
-      <img class="h-[48px] w-[48px] ml-4" src="../assets/shared/logo.svg" />
+      <img class="h-[48px] w-[48px] ml-8" src="../assets/shared/logo.svg" />
 
-      <div class="flex flex-row justify-around w-[50vw] h-[90px] px-4 backdrop">
-        <routerLink to="/" class="link" :class="{ 'link--active': pathMap.home === path }">
+      <div class="flex flex-row justify-around w-[60vw] h-[90px] px-4 backdrop">
+        <routerLink to="/" class="link ml-8" :class="{ 'link--active': pathMap.home === path }">
           <span class="link__row">
             <span class="link--bold">00</span> Home
           </span>
