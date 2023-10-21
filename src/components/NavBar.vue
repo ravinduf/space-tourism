@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
 const showDropdown = ref(false)
 </script>
 <template>
-  <section class="relative top-10 hidden md:block">
+  <section class="lg:mt-10 hidden md:block md:mt-0 ">
     <nav class="flex flex-row items-center justify-between h-[90px] ">
       <img class="h-[48px] w-[48px] ml-4" src="../assets/shared/logo.svg" />
 
@@ -50,7 +50,7 @@ const showDropdown = ref(false)
     </nav>
   </section>
 
-  <section class="block md:hidden">
+  <section class="block md:hidden pt-3 px-3">
     <nav class="flex flex-row justify-between items-center p-3">
       <img class="h-[40px] w-[40px]" src="../assets/shared/logo.svg" />
 
@@ -105,16 +105,12 @@ const showDropdown = ref(false)
 }
 
 .backdrop {
-
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(40.7742px);
+  /* backdrop-filter: blur(40.7742px); */
+  @apply backdrop-blur-2xl bg-[#ffffff0a]
 }
 
 .dropdown {
-
-
   /* Note: backdrop-filter has minimal browser support */
-
   @apply h-[100vh] w-[60vw] absolute right-0 top-0
 }
 
