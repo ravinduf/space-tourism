@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -18,6 +18,16 @@ router.beforeEach((to, from, next) => {
 })
 
 const showDropdown = ref(false)
+const dropdown = ref(null)
+const closeDropdown = (e) => {
+  if (dropdown.value && !dropdown.value.contains(e.target) && !e.target.classList.contains('hamburger-icon')) {
+    showDropdown.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('mousedown', closeDropdown)
+})
 </script>
 <template>
   <section class="lg:mt-10 hidden md:block md:mt-0 ">
@@ -55,16 +65,16 @@ const showDropdown = ref(false)
     <nav class="flex flex-row justify-between items-center p-3">
       <img class="h-[40px] w-[40px]" src="../assets/shared/logo.svg" />
 
-      <img class="" src="../assets/shared/icon-hamburger.svg" :class="{ 'hidden': showDropdown }"
+      <img class="hamburger-icon" src="../assets/shared/icon-hamburger.svg" :class="{ 'hidden': showDropdown }"
         @click="showDropdown = !showDropdown" />
     </nav>
   </section>
 
   <div class="dropdown backdrop" :class="{ 'hidden': !showDropdown }">
     <!-- <div class="blur-[2px] bg-[#979797]/20 h-[99%] w-[99%] z-[-1] fixed top-0" ></div> -->
-    <div class="flex flex-col items-end z-[90] h-full">
+    <div class="flex flex-col items-end z-[90] h-full" ref="dropdown">
 
-      <div class="flex flex-row justify-end">
+      <div class="flex flex-row justify-end" >
         <img class="h-6 w-6 mr-5 mt-5 " src="../assets/shared/icon-close.svg" @click="showDropdown = !showDropdown" />
       </div>
 
