@@ -3,7 +3,7 @@
 
   <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:w-[75%] lg:mx-auto mt-4 md:mt-20 lg:mt-[30vh]">
     <div class="w-4/5 md:w-[60%] lg:w-[36%] text-center lg:text-left ">
-      <div class="text-base md:text-2xl lg:text-3xl font-barlow text-primaryLightBlue tracking-widest uppercase">So, you want to
+      <div class="text-base md:text-2xl lg:text-[28px ] font-barlow text-primaryLightBlue tracking-widest uppercase">So, you want to
         travel to</div>
       <div class="text-7xl md:text-[150px] font-bellefair uppercase my-4 md:my-5">Space</div>
       <div class="font-barlow text-[15px] lg:text-lg md:text-base text-primaryLightBlue md:tracking-widest">Let’s face it; if you
