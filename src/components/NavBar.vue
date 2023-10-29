@@ -21,7 +21,7 @@ const showDropdown = ref(false)
 </script>
 <template>
   <section class="lg:mt-10 hidden md:block md:mt-0 ">
-    <div class="hidden lg:block relative top-11 left-[120px]  z-10 h-[1px] w-[35%] bg-[#979797]/50"></div>
+    <div class="hidden lg:block relative top-11 left-[120px]  z-10 h-[1px] w-[34%] bg-[#979797]/50"></div>
     <nav class="flex flex-row items-center justify-between h-[90px] ">
       <img class="h-[48px] w-[48px] ml-8" src="../assets/shared/logo.svg" />
 
