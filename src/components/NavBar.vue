@@ -1,21 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-const path = ref("/");
-const pathMap = {
-  home: '/',
-  destination: '/destination',
-  crew: '/crew',
-  technology: '/technology'
-}
-
-router.beforeEach((to, from, next) => {
-  console.log("to", to, "from", from, "next", next)
-  path.value = to.path
-  next()
-})
 
 const showDropdown = ref(false)
 const dropdown = ref(null)
@@ -36,23 +20,23 @@ onMounted(() => {
       <img class="h-[48px] w-[48px] ml-8" src="../assets/shared/logo.svg" />
 
       <div class="flex flex-row justify-around w-[60vw] h-[90px] px-4 backdrop">
-        <routerLink to="/" class="link ml-8" :class="{ 'link--active': pathMap.home === path }">
+        <routerLink to="/" class="link ml-8" active-class="link--active" >
           <span class="link__row">
             <span class="link--bold">00</span> Home
           </span>
         </routerLink>
-        <routerLink to="/destination" class="link" :class="{ 'link--active': pathMap.destination === path }">
+        <routerLink to="/destination" class="link" active-class="link--active">
           <span class="link__row">
             <span class="link--bold">01</span> Destination
           </span>
         </routerLink>
-        <routerLink to="/crew" class="link" :class="{ 'link--active': pathMap.crew === path }">
+        <routerLink to="/crew" class="link" active-class="link--active">
           <span class="link__row">
             <span class="link--bold">02</span> Crew
           </span>
         </routerLink>
         <routerLink to="/technology" class="link lg:mr-[150px] md:mr-[30px]"
-          :class="{ 'link--active': pathMap.technology === path }">
+          active-class="link--active">
           <span class="link__row">
             <span class="link--bold">03</span> Technology
           </span>
