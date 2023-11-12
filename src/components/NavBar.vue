@@ -1,5 +1,14 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+// router.beforeEach((to, from, next) => {
+//   console.log("to", to, "from", from, "next", next)
+//   path.value = to.path
+//   next()
+// })
 
 const showDropdown = ref(false)
 const dropdown = ref(null)
@@ -20,7 +29,7 @@ onMounted(() => {
       <img class="h-[48px] w-[48px] ml-8" src="../assets/shared/logo.svg" />
 
       <div class="flex flex-row justify-around w-[60vw] h-[90px] px-4 backdrop">
-        <routerLink to="/" class="link ml-8" active-class="link--active" >
+        <routerLink to="/" class="link ml-8" active-class="link--active">
           <span class="link__row">
             <span class="link--bold">00</span> Home
           </span>
@@ -35,8 +44,7 @@ onMounted(() => {
             <span class="link--bold">02</span> Crew
           </span>
         </routerLink>
-        <routerLink to="/technology" class="link lg:mr-[150px] md:mr-[30px]"
-          active-class="link--active">
+        <routerLink to="/technology" class="link lg:mr-[150px] md:mr-[30px]" active-class="link--active">
           <span class="link__row">
             <span class="link--bold">03</span> Technology
           </span>
@@ -58,23 +66,22 @@ onMounted(() => {
     <!-- <div class="blur-[2px] bg-[#979797]/20 h-[99%] w-[99%] z-[-1] fixed top-0" ></div> -->
     <div class="flex flex-col items-end z-[90] h-full" ref="dropdown">
 
-      <div class="flex flex-row justify-end" >
+      <div class="flex flex-row justify-end">
         <img class="h-6 w-6 mr-5 mt-5 " src="../assets/shared/icon-close.svg" @click="showDropdown = !showDropdown" />
       </div>
 
       <div class="flex flex-col mt-16 w-[90%] ">
-        <routerLink to="/" class="dropdown__link" :class="{ 'dropdown__link--active': pathMap.home === path }">
+        <routerLink to="/" class="dropdown__link" active-class="dropdown__link--active">
           <span class="link--bold">00</span> Home
         </routerLink>
-        <routerLink to="/destination" class="dropdown__link"
-          :class="{ 'dropdown__link--active': pathMap.destination === path }">
+        <routerLink to="/destination" class="dropdown__link" active-class="dropdown__link--active">
           <span class="link--bold">01</span> Destination
         </routerLink>
-        <routerLink to="/crew" class="dropdown__link" :class="{ 'dropdown__link--active': pathMap.crew === path }">
+        <routerLink to="/crew" class="dropdown__link" active-class="dropdown__link--active">
           <span class="link--bold">02</span> Crew
         </routerLink>
         <routerLink to="/technology" class="dropdown__link lg:mr-[150px] md:mr-[30px]"
-          :class="{ 'dropdown__link--active': pathMap.technology === path }">
+          active-class="dropdown__link--active">
           <span class="link--bold">03</span> Technology
         </routerLink>
       </div>
