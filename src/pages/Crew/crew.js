@@ -1,4 +1,4 @@
-import commander from "../../assets/crew/commander.webp";
+import commander from "../../assets/crew/commander.png";
 import engineer from "../../assets/crew/engineer.webp";
 import pilot from "../../assets/crew/pilot.webp";
 import specialist from "../../assets/crew/specialist.webp";
@@ -24,7 +24,8 @@ export const crew = {
   },
   commander: {
     key: 'commander',
-    designation: 'dougles hurley',
+    designation: 'commander',
+    name: 'dougles hurley',
     description: `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot 
     and former NASA astronaut. He launched into space for the third time as 
     commander of Crew Dragon Demo-2.`,
